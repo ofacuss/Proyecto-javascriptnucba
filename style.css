@@ -1,0 +1,229 @@
+/* =========================================
+   1. TIPOGRAFÍA Y VARIABLES (Tendencia 2026)
+   ========================================= */
+@import url('https://fonts.googleapis.com');
+
+:root {
+    --primary: #0d6efd;
+    --dark-bg: #0a0a0a;
+    --light-bg: #f8f9fa;
+    --text-main: #212529;
+    --font-titles: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. NAVBAR (Corrección de Contraste y Vidrio)
+   ========================================= */
+.navbar {
+    transition: var(--transition);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(10, 10, 10, 0.85); /* Fondo oscuro translúcido */
+    padding: 15px 0;
+}
+
+/* Logo en blanco y azul */
+.navbar-brand {
+    font-family: var(--font-titles);
+    color: #ffffff !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar-brand span {
+    color: var(--primary) !important;
+}
+
+/* Enlaces de navegación en blanco (Evita el violeta/azul de Bootstrap) */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: var(--font-titles);
+    font-weight: 500;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary) !important;
+}
+
+/* Menú hamburguesa blanco */
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* =========================================
+   3. HERO (Centrado Absoluto)
+   ========================================= */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                url('https://images.unsplash.com') no-repeat center center/cover;
+}
+
+.hero-section h1 {
+    font-family: var(--font-titles);
+    color: #ffffff;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero-section p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   4. SECCIONES Y TÍTULOS (Flexbox Centering)
+   ========================================= */
+.section-title {
+    font-family: var(--font-titles);
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.8rem;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+/* =========================================
+   5. PRODUCTOS (Grid Centrado)
+   ========================================= */
+#products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.card {
+    border-radius: 24px;
+    border: none;
+    transition: var(--transition);
+    max-width: 330px;
+    background: #fff;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1) !important;
+}
+
+.card h5 { font-family: var(--font-titles); font-weight: 700; }
+
+/* =========================================
+   6. CONTACTO (Alineación Simétrica)
+   ========================================= */
+#contact .row {
+    justify-content: center;
+    align-items: stretch;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    color: var(--primary);
+    border-radius: 12px;
+    margin-right: 15px;
+}
+
+.form-control {
+    border-radius: 14px;
+    padding: 14px 20px;
+    border: 1px solid #eee;
+    font-family: var(--font-body);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+    border-color: var(--primary);
+}
+
+/* =========================================
+   7. BOTONES Y CARRITO
+   ========================================= */
+.btn {
+    font-family: var(--font-titles);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 12px 30px;
+    transition: var(--transition);
+}
+
+.hover-up:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(13, 110, 253, 0.2) !important;
+}
+
+#cart-list .list-group-item {
+    border-radius: 16px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 12px;
+    padding: 15px;
+}
+
+/* =========================================
+   8. ANIMACIONES (Reveal)
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   9. RESPONSIVE
+   ========================================= */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: #111;
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+    .hero-section h1 { font-size: 2.8rem; }
+    #about .row { text-align: center; }
+    .section-title { font-size: 2.2rem; }
+}
